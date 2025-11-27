@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preethi Murali - Research Executive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Modern Deep Gradient */
+            background: linear-gradient(135deg, #1e1e2f 0%, #2d2d44 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* body.bg-purple {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body.bg-teal {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        body.bg-orange {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        body.bg-blue {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        body.bg-sunset {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        } */
+
+        /* Animated background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 5%;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #764ba2;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            background: rgba(245, 247, 241, 0.95);
+            color: #080808;
+            padding: 4rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease;
+            max-width: 800px;
+        }
+
+        .hero-content p {
+            color: #ffffff;
+        }
+
+        .profile-image-container {
+            margin-bottom: 2rem;
+            animation: scaleIn 1s ease 0.2s both;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.4);
+        }
+
+        .profile-placeholder {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            border: 5px solid white;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s;
+            margin: 0 auto;
+        }
+
+        .profile-placeholder:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+            animation: slideIn 1s ease 0.3s both;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            color: #764ba2;
+            margin-bottom: 1.5rem;
+            animation: slideIn 1s ease 0.5s both;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease 0.7s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            border: 1px solid var(--primary);
+            transition: all 0.3s ease;
+            font-family: 'Outfit', monospace;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+            color: var(--primary);
+        }
+
+        .contact-item:hover {
+            transform: scale(1.1);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        /* Experience Cards */
+        .experience-grid,
+        .education-grid {
+            display: grid;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: cardFadeIn 0.6s ease forwards;
+        }
+
+        @keyframes cardFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card h4 {
+            color: #764ba2;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .card ul {
+            margin-left: 1.5rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .card p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s;
+            opacity: 0;
+            animation: cardFadeIn 0.6s ease forwards;
+        }
+
+        .skill-category:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .skill-category:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .skill-category:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            margin: 0.3rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Languages & Interests */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Scroll Animation */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-animate.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero-content {
+                padding: 2rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#languages">Languages</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="profile-image-container">
+                <!-- Replace the src below with actual image URL -->
+                <img src="images/preethi-image.png" alt="Preethi Murali" class="profile-image">
+                <!-- <div class="profile-placeholder">PM</div> -->
+            </div>
+            <h1>Preethi Murali</h1>
+            <h2>Research Executive</h2>
+            <p>An insightful researcher with 3 years of experience. Seeking the opportunity to work in a friendly and
+                fast-growing environment where my analytical and methodical skills will be extremely valuable in
+                attaining the company's missions and goals.</p>
+            <div class="contact-info">
+                <a href="https://www.linkedin.com/in/preethi-murali-b57279213/" class="contact-item" target="_blank">🔗
+                    LinkedIn</a>
+                <a href="mailto:preethiaji2299@gmail.com" class="contact-item">📧 preethiaji2299@gmail.com</a>
+                <a href="tel:+919159255699" class="contact-item">📞 (+91)
+                    9159255699</a>
+                <span class="contact-item">📍Tamil Nadu - 631051</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="experience-grid">
+            <div class="card scroll-animate">
+                <h3>Marketing Research Executive</h3>
+                <h4>Infrascale India Private Limited</h4>
+                <p class="date">November 2022 - December 2024 | Chennai, Tamilnadu</p>
+                <p>Infrascale is a Cloud backup and Storage selling company.</p>
+                <ul>
+                    <li>Collection and Analysis of information for IT service and Cloud service providers</li>
+                    <li>Changed the focus on conversion rates and introduced a post-click marketing platform, increasing
+                        on-page conversion</li>
+                    <li>Analysis of partners contacts, and follow up through mails</li>
+                    <li>Gathered, arranged and corrected research data to create representative graphs and charts</li>
+                    <li>Traditional lead generation through primary and secondary research, leveraging social media
+                        platforms such as LinkedIn, Zoom Info, Crunchbase, Bloomberg, Apollo.io</li>
+                </ul>
+            </div>
+
+            <div class="card scroll-animate">
+                <h3>Associate Research Executive</h3>
+                <h4>Draup</h4>
+                <p class="date">December 2021 - October 2022 | Nemili, Tamilnadu</p>
+                <ul>
+                    <li>Conducted global research to gather data from secondary sources</li>
+                    <li>Analyzed trends across various technologies</li>
+                    <li>Researched and analyzed companies to understand their requirements</li>
+                    <li>Responsible for maintaining large amounts of data and analyzing it to find required information
+                    </li>
+                    <li>Kept track of new trends in market and new technologies to increase company leverage</li>
+                </ul>
+            </div>
+
+            <div class="card scroll-animate">
+                <h3>Assistant Accountant</h3>
+                <h4>Sai Motors</h4>
+                <p class="date">September 2019 - February 2020 | Tiruvallur, Tamilnadu</p>
+                <ul>
+                    <li>Purchase and Sales entries</li>
+                    <li>Bank Reconciliations and multiple bank account maintenance</li>
+                    <li>Handled cash receipts, deposits & payments, cash balancing</li>
+                    <li>Documented financial transactions by entering account information</li>
+                    <li>Maintained sales & service cash</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category scroll-animate">
+                <h3>Technical Skills</h3>
+                <div>
+                    <span class="skill-tag">Microsoft Office</span>
+                    <span class="skill-tag">Data Analysis</span>
+                    <span class="skill-tag">Tally ERP 9</span>
+                    <span class="skill-tag">Online Research</span>
+                </div>
+            </div>
+
+            <div class="skill-category scroll-animate">
+                <h3>Research Skills</h3>
+                <div>
+                    <span class="skill-tag">Secondary Research</span>
+                    <span class="skill-tag">Market Research</span>
+                    <span class="skill-tag">Email Campaign</span>
+                    <span class="skill-tag">Email Content</span>
+                </div>
+            </div>
+
+            <div class="skill-category scroll-animate">
+                <h3>Other Skills</h3>
+                <div>
+                    <span class="skill-tag">Leadership</span>
+                    <span class="skill-tag">Micro Finance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="education-grid">
+            <div class="card scroll-animate">
+                <h3>Bachelor of Commerce</h3>
+                <h4>Sri Sankara Arts and Science</h4>
+                <p class="date">June 2015 - August 2018 | Kancheepuram, Tamilnadu</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages & Interests -->
+    <section id="languages">
+        <h2 class="section-title">Languages & Interests</h2>
+        <div class="info-grid">
+            <div class="card scroll-animate">
+                <h3>Languages</h3>
+                <div>
+                    <span class="skill-tag">Tamil - Native</span>
+                    <span class="skill-tag">English - Professional</span>
+                    <span class="skill-tag">Telugu - Native</span>
+                </div>
+            </div>
+
+            <div class="card scroll-animate">
+                <h3>Interests</h3>
+                <div>
+                    <span class="skill-tag">Artificial Intelligence</span>
+                    <span class="skill-tag">Data Science</span>
+                    <span class="skill-tag">Accounting</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Create animated particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = Math.random() * 100 + 20 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Change background color on scroll
+        const sections = document.querySelectorAll('section');
+        const backgrounds = ['bg-purple', 'bg-teal', 'bg-orange', 'bg-blue', 'bg-sunset'];
+
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+            sections.forEach((section, index) => {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    document.body.className = backgrounds[index % backgrounds.length];
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
